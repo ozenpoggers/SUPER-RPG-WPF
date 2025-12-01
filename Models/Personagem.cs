@@ -7,7 +7,6 @@ namespace SUPERRPGWPF.Models
         public string Classe { get; set; } = string.Empty;
         public int Nivel { get; set; }
 
-        // Relação: um personagem pode ter vários itens
         public List<Item> Itens { get; set; } = new();
 
         // Sobrescreve ToString para exibir o nome no ComboBox
