@@ -1,0 +1,69 @@
+﻿<Window x:Class="SUPERRPGWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cadastro RPG" Height="600" Width="900">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Cadastro de Personagens -->
+        <StackPanel Grid.Column="0" Margin="10">
+            <TextBlock Text="Cadastro de Personagens" FontSize="18" Margin="0,0,0,10"/>
+            <TextBlock Text="Nome"/>
+            <TextBox x:Name="txtNomePersonagem" Margin="0,0,0,5"/>
+            <TextBlock Text="Classe"/>
+            <TextBox x:Name="txtClassePersonagem" Margin="0,0,0,5"/>
+            <TextBlock Text="Nível"/>
+            <TextBox x:Name="txtNivelPersonagem" Margin="0,0,0,5"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <Button Content="Adicionar Personagem" Click="AdicionarPersonagem_Click" Width="150" Margin="0,0,10,0"/>
+                <Button Content="Salvar Personagens" Click="SalvarPersonagens_Click" Width="150" Margin="0,0,10,0"/>
+                <Button Content="Remover Personagem" Click="RemoverPersonagem_Click" Width="150"/>
+            </StackPanel>
+
+            <!-- DataGrid com colunas definidas manualmente -->
+            <DataGrid x:Name="dgPersonagens" AutoGenerateColumns="False" Height="200">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" />
+                    <DataGridTextColumn Header="Classe" Binding="{Binding Classe}" />
+                    <DataGridTextColumn Header="Nível" Binding="{Binding Nivel}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+
+        <!-- Cadastro de Itens -->
+        <StackPanel Grid.Column="1" Margin="10">
+            <TextBlock Text="Cadastro de Itens" FontSize="18" Margin="0,0,0,10"/>
+            <TextBlock Text="Nome"/>
+            <TextBox x:Name="txtNomeItem" Margin="0,0,0,5"/>
+            <TextBlock Text="Raridade"/>
+            <TextBox x:Name="txtRaridadeItem" Margin="0,0,0,5"/>
+            <TextBlock Text="Preço"/>
+            <TextBox x:Name="txtPrecoItem" Margin="0,0,0,5"/>
+
+            <!-- ComboBox para vincular Item a Personagem -->
+            <TextBlock Text="Pertence ao Personagem"/>
+            <ComboBox x:Name="cbPersonagemItem" DisplayMemberPath="Nome" Margin="0,0,0,5"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <Button Content="Adicionar Item" Click="AdicionarItem_Click" Width="120" Margin="0,0,10,0"/>
+                <Button Content="Salvar Itens" Click="SalvarItens_Click" Width="120" Margin="0,0,10,0"/>
+                <Button Content="Remover Item" Click="RemoverItem_Click" Width="120"/>
+            </StackPanel>
+
+            <!-- DataGrid de Itens com colunas definidas manualmente -->
+            <DataGrid x:Name="dgItens" AutoGenerateColumns="False" Height="200">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Nome do Item" Binding="{Binding Nome}" />
+                    <DataGridTextColumn Header="Raridade" Binding="{Binding Raridade}" />
+                    <!-- ✅ Preço sem casas decimais e com 'g' -->
+                    <DataGridTextColumn Header="Preço" Binding="{Binding Preco, StringFormat={}{0:F0}g}" />
+                    <DataGridTextColumn Header="Personagem" Binding="{Binding Personagem.Nome}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>
