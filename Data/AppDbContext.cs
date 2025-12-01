@@ -19,7 +19,7 @@ namespace SUPERRPGWPF.Data
                 .HasOne(i => i.Personagem)
                 .WithMany(p => p.Itens)
                 .HasForeignKey(i => i.PersonagemId)
-                .OnDelete(DeleteBehavior.Cascade); // ✅ se remover personagem, remove itens juntos
+                .OnDelete(DeleteBehavior.Cascade); 
         }
     }
 }
