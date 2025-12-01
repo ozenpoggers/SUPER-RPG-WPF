@@ -59,7 +59,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Nome do Item" Binding="{Binding Nome}" />
                     <DataGridTextColumn Header="Raridade" Binding="{Binding Raridade}" />
-                    <!-- ✅ Preço sem casas decimais e com 'g' -->
+                    <!-- Preço sem casas decimais e com 'g' -->
                     <DataGridTextColumn Header="Preço" Binding="{Binding Preco, StringFormat={}{0:F0}g}" />
                     <DataGridTextColumn Header="Personagem" Binding="{Binding Personagem.Nome}" />
                 </DataGrid.Columns>
